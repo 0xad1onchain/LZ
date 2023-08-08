@@ -6,8 +6,8 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract ERC20Mintable is ERC20 { 
 
     uint8 internal  _decimals;
-    constructor(string memory name, string memory symbol, uint8 decimals) ERC20(name, symbol) {
-        _decimals = decimals;
+    constructor(string memory name, string memory symbol, uint8 decimal) ERC20(name, symbol) {
+        _decimals = decimal;
     }
 
     function decimals() public view virtual override returns (uint8) {
