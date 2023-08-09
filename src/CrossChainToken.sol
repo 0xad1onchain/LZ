@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.13;
+pragma solidity 0.8.19;
 
 import {ProxyOFTV2} from "layerzerolabs/contracts/token/oft/v2/ProxyOFTV2.sol";
 import {BytesLib} from "layerzerolabs/contracts/util/BytesLib.sol";
