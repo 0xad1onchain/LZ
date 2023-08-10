@@ -1,38 +1,38 @@
-# <h1 align="center"> Forge Template </h1>
+# <h1 align="center"> LZ Token Bridge </h1>
 
-**Template repository for getting started quickly with Foundry projects**
+**Quick demo on using OFT protocol to send tokens crosschain using LayerZero**
 
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
+
 
 ## Getting Started
 
-Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
+Clone this repository. If you dont have foundry installed, set it up
 
 Or, if your repo already exists, run:
 ```sh
-forge init
 forge build
-forge test
 ```
 
-## Writing your first test
+Create a `.env` file with following secrets 
 
-All you need is to `import forge-std/Test.sol` and then inherit it from your test contract. Forge-std's Test contract comes with a pre-instatiated [cheatcodes environment](https://book.getfoundry.sh/cheatcodes/), the `vm`. It also has support for [ds-test](https://book.getfoundry.sh/reference/ds-test.html)-style logs and assertions. Finally, it supports Hardhat's [console.log](https://github.com/brockelmore/forge-std/blob/master/src/console.sol). The logging functionalities require `-vvvv`.
-
-```solidity
-pragma solidity 0.8.10;
-
-import "forge-std/Test.sol";
-
-contract ContractTest is Test {
-    function testExample() public {
-        vm.roll(100);
-        console.log(1);
-        emit log("hi");
-        assertTrue(true);
-    }
-}
 ```
+PRIV_KEY
+MUMBAI_RPC
+GOERLI_RPC
+ETHERSCAN_API_KEY
+POLYGONSCAN_API_KEY
+```
+
+## Deploying cross chain token
+
+At the moment, the codebase scripts are configured to bridge a token from mumbai testnet to goerli testnet. This can be changed by changing chain id and lz_endpoints in `deploy.s.sol` 
+
+1. Run `make deploy_src` to deploy a sample token and proxy contract on the source chain
+2. Run `make deploy_dest` to deploy receiver OFT contract on the destination chain
+3. Run `make deploy_setup` to setup source chain contract to interact with destination contract
+4. Run `make init_send` to initiate a token bridge call from source chain
+
+
 
 ## Development
 
